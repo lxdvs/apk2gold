@@ -1,20 +1,18 @@
 # Super Easy+Good Android App Decompilation!
 
 ## Why
-**One stop shop**
+### One stop shop
 I got pretty tired of decompiling Android apps with a bunch of steps that I had to remember all the time.
 
-**Collocation of source files**
-
+###C ollocation of source files
 Further, even after these steps were complete (usually a combination of dex2jar and JD-GUI), I would be left with disparate sources of information; the decompiled Java would be over here in this directory, while the un-DEXed content would be somewhere else (Really bad for importing into eclipse!)
 
 I basically wanted to make this generate a tree and source as close as possible to what the original Android developer sees.
 
-**Regeneration of R.* References**
-
-One thing that existing decompilers *dont* do is regenerate R references. This project includes a module that does. Which gives you more insight when you're reading source code?
-`View v = inflater.inflate(217994357, container, false);`
-or
+### Regeneration of R.* References
+One thing that existing decompilers *dont* do is regenerate R references. This project includes a module that does. Which gives you more insight when you're reading source code?  
+`View v = inflater.inflate(217994357, container, false);`  
+or  
 `View v = inflater.inflate(R.layout.result_panel, container, false);`
 
 Now you can easily see and search for what resource is doing what, without needing to file-search R.java for some opaque int.
@@ -39,5 +37,5 @@ Just run make.sh after you make it executable (chmod +x make.sh).
 
 # Usage
 
-Easy as pie! Just use:
-`apk2gold <target>.apk
+Easy as pie! Just use:  
+`apk2gold <target>.apk`
