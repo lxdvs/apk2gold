@@ -1,13 +1,14 @@
+#!/bin/bash
 ARCH=`uname`
 echo "$ARCH"
 git submodule update --init
 cd jd-cli
-if [[ "$ARCH" -eq "Darwin" ]]
+if [[ "$ARCH" = "Darwin" ]]
 then
 make osx
 cd ..
 ln -s ./osx/apktool apktool
-elif [[ "$ARCH" -eq "Linux" ]]
+elif [[ "$ARCH" = "Linux" ]]
 then
 make linux
 ln -s ./linux/apktool apktool
