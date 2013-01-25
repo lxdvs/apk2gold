@@ -1,0 +1,11 @@
+#!/bin/sh
+MPATH=`dirname $0`
+FOLDER=`echo $1 | sed -e 's/\.apk//g'`
+$MPATH/osx/apktool d -f $1
+mkdir $FOLDER/src
+mv $FOLDER/smali $FOLDER/.smali
+$MPATH/dex2jar-0.0.9.12/dex2jar.sh $1
+echo "Converting .class files to java..."
+java -jar $MPATH/jd-cli/jd-core-java-1.0.jar ${FOLDER}_dex2jar.jar $FOLDER/src
+rm -rf ${FOLDER}_dex2jar.jar
+python $MPATH/reassoc.py ${FOLDER}
