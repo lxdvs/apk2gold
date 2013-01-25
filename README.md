@@ -20,7 +20,7 @@ Now you can easily see and search for what resource is doing what, without needi
 **Note:** This process relies on guesses and may lead to weird results, because the resource ints were inlined and opaque. You can check out the source code of rreassoc.py to see my matching heuristics and adjust them appropriately.
 
 ## What
-apk2gold is a collection of (excellent!) 3rd-party tools and original content (the RRegenerator). It is designed to be easily installed and to get you the best results for Android app introspection as quickly as possible. The project stands on the shoulders of the following giants:
+apk2gold is basically a small amount of original content (the R.* thing) and a script wrapping some excellent 3rd-party tools. It is designed to be easily installed and to get you the best results for Android app introspection as quickly as possible. The project stands on the shoulders of the following giants:
 
 * **[nviennot/jd-core-java](https://github.com/nviennot/jd-core-java)** (or technically my [fork](https://github.com/lxdvs/jd-core-java) thereof, which actually builds under OSX ;) and by extension, **[JD](http://java.decompiler.free.fr/)**
 
