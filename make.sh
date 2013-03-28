@@ -1,16 +1,27 @@
 #!/bin/bash
-ARCH=`uname`
+SYS=`uname`
+ARCH=`uname -m`
 git submodule update --init
 cd jd-cli
-if [[ "$ARCH" = "Darwin" ]]
+if [[ "$SYS" = "Darwin" ]]
 then
-make osx
-cd ..
-ln -s ./osx/apktool apktool
-elif [[ "$ARCH" = "Linux" ]]
+	if [[ "$ARCH" = "x86_64" ]]
+	then
+		make osx64
+	else
+		make osx32
+	fi
+	cd ..
+	ln -s ./osx/apktool apktool
+elif [[ "$SYS" = "Linux" ]]
 then
-make linux
-cd ..
-ln -s ./linux/apktool apktool
+	if [[ "$ARCH" = "x86_64" ]]
+	then
+		make linux64
+	else
+		make linux32
+	fi
+	cd ..
+	ln -s ./linux/apktool apktool
 fi
 pwd
