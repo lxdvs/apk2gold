@@ -1,8 +1,9 @@
 #!/bin/bash
-SYS=`uname`
-ARCH=`uname -m`
+#SYS=`uname`
+#ARCH=`uname -m`
 git submodule update --init
 cd jd-cli
+wget https://github.com/kolipass/jd-core-java/releases/download/1.2/jd-core-java-1.2.jar
 if [[ "$SYS" = "Darwin" ]]
 then
 	if [[ "$ARCH" = "x86_64" ]]
