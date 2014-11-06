@@ -6,6 +6,6 @@ mkdir $FOLDER/src
 mv $FOLDER/smali $FOLDER/.smali
 $MPATH/dex2jar-0.0.9.15/d2j-dex2jar.sh $1
 echo "Converting .class files to java..."
-java -jar $MPATH/jd-cli/jd-core-java-1.0.jar ${FOLDER}-dex2jar.jar $FOLDER/src
+java -jar jd-cli.jar ${FOLDER}-dex2jar.jar -od $FOLDER/src
 rm -rf ${FOLDER}-dex2jar.jar
 python $MPATH/rreassoc.py ${FOLDER}

@@ -1,3 +1,3 @@
-[submodule "jd-cli"]
-	path = jd-cli
-	url = https://github.com/lxdvs/jd-core-java.git
+[submodule "jd-cmd"]
+	path = jd-cmd
+	url = https://github.com/kwart/jd-cmd.git
