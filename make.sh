@@ -11,7 +11,6 @@ then
 	else
 		make osx32
 	fi
-	cd ..
 	ln -s ./osx/apktool apktool
 elif [[ "$SYS" = "Linux" ]]
 then
@@ -21,7 +20,6 @@ then
 	else
 		make linux32
 	fi
-	cd ..
-	ln -s ./linux/apktool apktool
 fi
+cd ..
 pwd

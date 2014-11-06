@@ -1,7 +1,7 @@
 #!/bin/sh
 MPATH=`dirname $0`
 FOLDER=`echo $1 | sed -e 's/\.apk//g'`
-$MPATH/osx/apktool d -f $1
+$MPATH/apktool/apktool d -f $1
 mkdir $FOLDER/src
 mv $FOLDER/smali $FOLDER/.smali
 $MPATH/dex2jar-0.0.9.12/dex2jar.sh $1
