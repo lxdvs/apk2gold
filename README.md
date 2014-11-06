@@ -22,7 +22,7 @@ Now you can easily see and search for what resource is doing what, without needi
 ## What
 apk2gold is basically a small amount of original content (the R.* thing) and a script wrapping some excellent 3rd-party tools. It is designed to be easily installed and to get you the best results for Android app introspection as quickly as possible. The project stands on the shoulders of the following giants:
 
-* **[nviennot/jd-core-java](https://github.com/nviennot/jd-core-java)** (or technically my [fork](https://github.com/lxdvs/jd-core-java) thereof, which actually builds under OSX ;) and by extension, **[JD](http://java.decompiler.free.fr/)**
+* **[kwart/jd-cmd](https://github.com/kwart/jd-cmd)** no idea if this builds under OSX :( and by extension, **[JD](http://java.decompiler.free.fr/)**
 
 * **[dex2jar](http://code.google.com/p/dex2jar/)**
 
@@ -39,7 +39,7 @@ Just run make.sh
 
 ## Usage
 
-### Getting the APK 
+### Getting the APK
 There are different ways to acquire an APK, but the easiest is to just download it from the Play Store and use ES File Explorer to back up the APK (ES File Explorer -> "AppMgr" tab -> long click on app you want -> backup). The APK is now in the 'backups' directory on your SD card. Now you can just USB it over (I like to email it to myself from ES File Explorer itself). More depth can be found at [this SO post](http://stackoverflow.com/questions/12175904/where-can-i-find-the-apk-file-on-my-device-when-i-download-any-app-and-install).
 
 ### Decompiling
