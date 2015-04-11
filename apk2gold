@@ -1,4 +1,12 @@
 #!/bin/sh
+if [ -z "$1" ]
+  then
+    echo "Usage: apk2gold apk_file"
+    echo
+    echo "Arguments:"
+    echo "apk_file        the APK package to be reverse engineered"
+    exit 1
+fi
 MPATH=`dirname $0`
 FOLDER=`echo $1 | sed -e 's/\.apk//g'`
 $MPATH/apktool/apktool d -f $1
