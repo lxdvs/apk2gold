@@ -1,11 +1,49 @@
 #!/bin/sh
-MPATH=`dirname $0`
+
+PLATFORM_PATH="" # folder containing android.jar
+MPATH=`dirname $0` # folder containing this script
+FWRES_PATH="$MPATH" # folder containing framework-res.apk
+APKTOOL_PATH="$MPATH/apktool" # folder containing apktool.jar
+JD_PATH="$MPATH/jd-cli" # folder containing jd-cli.jar
+D2J_PATH="$MPATH/dex2jar" # folder containing d2j-dex2jar.sh
+RR_PATH="$MPATH" # folder containing rreassoc.py
+AAPT_PATH="" # folder containing aapt (extracted from apktool if blank)
+
+JD_ARGS="-g INFO" # arguments for jd-cli.jar
+RR_ARGS="-v 0" # arguments for rreassoc.py
+
+if [ -z $PLATFORM_PATH ]; then
+    echo "You must edit this script and adjust the variables within prior to use."
+    exit
+elif [ -z $1 ]; then
+    echo "usage: $0 <target>.apk"
+    exit
+elif [ ! -f $1 ]; then
+    echo "'$1' is not a valid apk file"
+    exit
+fi
+
+TMPDIR=`mktemp -d`
+if [ -z $AAPT_PATH ]; then
+    echo "Extracting aapt from apktool.jar..."
+    APKTOOL=$( cd $APKTOOL_PATH; pwd )/apktool.jar
+    ( cd $TMPDIR; jar xf $APKTOOL prebuilt/aapt/linux/aapt )
+    AAPT_PATH=$TMPDIR/prebuilt/aapt/linux
+    chmod a+x $AAPT_PATH/aapt
+fi
+
+java -jar $APKTOOL_PATH/apktool.jar -p $TMPDIR if $MPATH/framework-res.apk
+java -jar $APKTOOL_PATH/apktool.jar -p $TMPDIR d -f $1
+
 FOLDER=`echo $1 | sed -e 's/\.apk//g'`
-$MPATH/apktool/apktool d -f $1
 mkdir $FOLDER/src
 mv $FOLDER/smali $FOLDER/.smali
-$MPATH/dex2jar-0.0.9.15/d2j-dex2jar.sh $1
+$D2J_PATH/d2j-dex2jar.sh $1
 echo "Converting .class files to java..."
-java -jar $MPATH/jd-cli.jar ${FOLDER}-dex2jar.jar -od $FOLDER/src
-rm -rf ${FOLDER}-dex2jar.jar
-python $MPATH/rreassoc.py ${FOLDER}
+java -jar $JD_PATH/jd-cli.jar $JD_ARGS ${FOLDER}-dex2jar.jar -od $FOLDER/src
+rm ${FOLDER}-dex2jar.jar
+
+python $RR_PATH/rreassoc.py $RR_ARGS ${FOLDER}
+$AAPT_PATH/aapt p -f -m -J $FOLDER/src -S $FOLDER/res -I $PLATFORM_PATH/android.jar -M $FOLDER/AndroidManifest.xml
+python $RR_PATH/rreassoc.py $RR_ARGS ${FOLDER}
+rm -r $TMPDIR
