@@ -3,7 +3,7 @@
 PLATFORM_PATH="" # folder containing android.jar
 MPATH=`dirname $0` # folder containing this script
 FWRES_PATH="$MPATH" # folder containing framework-res.apk
-APKTOOL_PATH="$MPATH" # folder containing apktool.jar
+APKTOOL_PATH="$MPATH/apktool" # folder containing apktool.jar
 JD_PATH="$MPATH/jd-cli" # folder containing jd-cli.jar
 D2J_PATH="$MPATH/dex2jar" # folder containing d2j-dex2jar.sh
 RR_PATH="$MPATH" # folder containing rreassoc.py
