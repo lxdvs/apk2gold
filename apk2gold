@@ -16,4 +16,5 @@ $MPATH/dex2jar-0.0.9.15/d2j-dex2jar.sh $1
 echo "Converting .class files to java..."
 java -jar $MPATH/jd-cli.jar ${FOLDER}-dex2jar.jar -od $FOLDER/src
 mv ${FOLDER}-dex2jar.jar $FOLDER/classes.jar
+unzip $FOLDER/classes.jar -d $FOLDER/classes
 python $MPATH/rreassoc.py ${FOLDER}
