@@ -22,7 +22,7 @@ Now you can easily see and search for what resource is doing what, without needi
 ## What
 apk2gold is basically a small amount of original content (the R.* thing) and a script wrapping some excellent 3rd-party tools. It is designed to be easily installed and to get you the best results for Android app introspection as quickly as possible. The project stands on the shoulders of the following giants:
 
-* **[kwart/jd-cmd](https://github.com/kwart/jd-cmd)** no idea if this builds under OSX :( and by extension, **[JD](http://java.decompiler.free.fr/)**
+* **[kwart/jd-cmd](https://github.com/kwart/jd-cmd)** and by extension, **[JD](http://java.decompiler.free.fr/)**
 
 * **[dex2jar](http://code.google.com/p/dex2jar/)**
 
