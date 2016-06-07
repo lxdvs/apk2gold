@@ -43,7 +43,7 @@ cd "${oldwd}"
 
 
 jarfile=apktool.jar
-libdir="$progdir"
+libdir="/usr/share/android-apktool"
 if [ ! -r "$libdir/$jarfile" ]
 then
     echo `basename "$prog"`": can't find $jarfile"
@@ -74,7 +74,4 @@ else
 	jarpath="$libdir/$jarfile"
 fi
 
-# add current location to path for aapt
-PATH=$PATH:`pwd`;
-export PATH;
 exec java $javaOpts -jar "$jarpath" "$@"
