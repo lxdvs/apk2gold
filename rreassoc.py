@@ -1,10 +1,12 @@
 import sys
-import os, fnmatch
+import os
+import fnmatch
 import re
 
 masterdict = {}
 partial = ''
 verbose = False
+
 
 def find_files(directory, pattern):
 	for root, dirs, files in os.walk(directory):
@@ -17,24 +19,24 @@ def find_files(directory, pattern):
 for file in find_files(sys.argv[1], 'R.java'):
 	f = open(file, 'r')
 	fparray = file.split('/')
-	#path = '.'.join(fparray[fparray.index("src")+1:-1]) + "."
-	print "Processing: " + file
+	print("Processing: {0}".format(file))
 	for line in f:
 		line = line.strip()
 		if line.startswith('public static final class'):
 			parts = line.split(' ')
 			partial = 'R.' + parts[4] + '.'
 		elif line.startswith('public static final int'):
-			try :
+			try:
 				parts = line.split(' ')
 				idx = int(parts[6][:-1])
-				if (idx > 100000): # Heuristic
+				if (idx > 100000):  # Heuristic
 					assoc = partial + parts[4]
-					masterdict[idx]=assoc
+					masterdict[idx] = assoc
 			except:
 				pass
 
-if verbose: print repr(masterdict)
+if verbose:
+	print(repr(masterdict))
 
 replacements = 0
 files = 0
@@ -56,11 +58,11 @@ for file in find_files(sys.argv[1], '*.java'):
 			replacements += content.count(str(key))
 			content = content.replace(str(key), val)
 			if verbose:
-				print str(file) + " : " + str(key) + "->" + val
+				print(str(file) + " : " + str(key) + "->" + val)
 	if was_match:
 		files += 1
 		f = open(file, 'w')
 		f.write(content)
 		f.close()
 
-print "Reassociated %s R.* references in %s files" % (replacements, files)
+print("Reassociated {0} R.* references in {1} files".format(replacements, files))
