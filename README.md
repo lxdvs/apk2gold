@@ -1,5 +1,11 @@
 # Easy-as-pie Android Decompiler
 
+## Updates
+
+- apktool to 2.2.0
+- dex2jar to 2.0
+- jd-cmd to 0.9.1
+
 ## Why
 ### One stop shop
 I got pretty tired of decompiling Android apps with a bunch of steps that I had to remember all the time. It involved a lot of apktool, dex2jar, and jd-gui; it still confuses me.
