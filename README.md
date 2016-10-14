@@ -30,18 +30,25 @@ apk2gold is basically a small amount of original content (the R.* thing) and a s
 
 * **[kwart/jd-cmd](https://github.com/kwart/jd-cmd)** no idea if this builds under OSX :( and by extension, **[JD](http://java.decompiler.free.fr/)**
 
-* **[dex2jar](http://code.google.com/p/dex2jar/)**
+* **[dex2jar](https://github.com/pxb1988/dex2jar)**
 
-* **[apktool](http://code.google.com/p/android-apktool/)**
+* **[apktool](https://github.com/iBotPeaches/Apktool)**
 
 ## Installation
 
 ### Dependencies
 
-You'll need python, git (for submodules), mercurial (hg) for the sub-builds, and maven (mvn) for jd-cli. Sorry!
+You'll need python and git. git is only necessary for cloning the repo. You can also download [zip file](https://github.com/nepalihackers/apk2gold-reloaded/archive/master.zip) instead of cloning.
 
 ### Installing
-Just run make.sh
+
+```shell
+git clone https://github.com/nepalihackers/apk2gold-reloaded $HOME/.apk2gold-reloaded
+echo "export PATH=$PATH:$HOME/.apk2gold-reloaded" >> ~/.bashrc
+source ~/.bashrc
+```
+
+now, you can run `apk2gold` command anywhere.
 
 ## Usage
 
