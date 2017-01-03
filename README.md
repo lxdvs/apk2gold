@@ -2,7 +2,7 @@
 
 ## Updates
 
-- apktool to 2.2.0
+- apktool to 2.2.1 - [Adds Android Nougat support and other misc fixes](http://connortumbleson.com/2016/10/18/apktool-v2-2-1-released/).
 - dex2jar to 2.0
 - jd-cmd to 0.9.1
 
