@@ -4,8 +4,4 @@ FOLDER=`echo $1 | sed -e 's/\.apk//g'`
 $MPATH/apktool/apktool d -f $1
 mkdir $FOLDER/src
 mv $FOLDER/smali $FOLDER/.smali
-$MPATH/dex2jar-0.0.9.15/d2j-dex2jar.sh $1
-echo "Converting .class files to java..."
-java -jar $MPATH/jd-cli.jar ${FOLDER}-dex2jar.jar -od $FOLDER/src
-rm -rf ${FOLDER}-dex2jar.jar
-python $MPATH/rreassoc.py ${FOLDER}
+$MPATH/jadx/bin/jadx -d $FOLDER/src $1
