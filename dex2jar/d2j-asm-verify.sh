@@ -45,4 +45,4 @@ else
     done
 fi
 
-java -Xms512m -Xmx1024m -classpath "${_classpath}" "com.googlecode.dex2jar.tools.DexRecomputeChecksum" "$@"
+java -Xms512m -Xmx1024m -classpath "${_classpath}" "com.googlecode.dex2jar.tools.AsmVerify" "$@"
