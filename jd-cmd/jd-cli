@@ -1,0 +1,6 @@
+#!/bin/sh
+
+DIRNAME=`dirname "$0"`
+DIR=`cd "$DIRNAME"; pwd`
+
+java -jar "$DIR/jd-cli.jar" $@ 

@@ -1,5 +1,11 @@
 # Easy-as-pie Android Decompiler
 
+## Updates
+
+- apktool to 2.2.1 - [Adds Android Nougat support and other misc fixes](http://connortumbleson.com/2016/10/18/apktool-v2-2-1-released/).
+- dex2jar to [7d5c4354026feeac25b05b864c6eb6f5482082fc](https://bitbucket.org/pxb1988/dex2jar/commits/7d5c4354026feeac25b05b864c6eb6f5482082fc)
+- jd-cmd to 0.9.1
+
 ## Why
 ### One stop shop
 I got pretty tired of decompiling Android apps with a bunch of steps that I had to remember all the time. It involved a lot of apktool, dex2jar, and jd-gui; it still confuses me.
@@ -24,18 +30,25 @@ apk2gold is basically a small amount of original content (the R.* thing) and a s
 
 * **[kwart/jd-cmd](https://github.com/kwart/jd-cmd)** no idea if this builds under OSX :( and by extension, **[JD](http://java.decompiler.free.fr/)**
 
-* **[dex2jar](http://code.google.com/p/dex2jar/)**
+* **[dex2jar](https://github.com/pxb1988/dex2jar)**
 
-* **[apktool](http://code.google.com/p/android-apktool/)**
+* **[apktool](https://github.com/iBotPeaches/Apktool)**
 
 ## Installation
 
 ### Dependencies
 
-You'll need python, git (for submodules), mercurial (hg) for the sub-builds, and maven (mvn) for jd-cli. Sorry!
+You'll need python and git. git is only necessary for cloning the repo. You can also download [zip file](https://github.com/nepalihackers/apk2gold-reloaded/archive/master.zip) instead of cloning.
 
 ### Installing
-Just run make.sh
+
+```shell
+git clone https://github.com/nepalihackers/apk2gold-reloaded $HOME/.apk2gold-reloaded
+echo "export PATH=$PATH:$HOME/.apk2gold-reloaded" >> ~/.bashrc
+source ~/.bashrc
+```
+
+now, you can run `apk2gold` command anywhere.
 
 ## Usage
 
